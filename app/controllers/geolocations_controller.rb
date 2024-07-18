@@ -27,6 +27,9 @@ class GeolocationsController < ApplicationController
     else
       render json: { error: 'Unable to fetch Geolocation data from IPStack' }, status: :unprocessable_entity
     end
+
+  rescue Resolv::ResolvError => e
+    render json: { error: "Unable to fetch IP address: #{e}" }, status: :unprocessable_entity
   end
 
   def show
