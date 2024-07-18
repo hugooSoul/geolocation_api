@@ -1,24 +1,43 @@
-# README
+# Geolocation API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Ruby version: ruby "3.1.2"
 
-Things you may want to cover:
+## Steps to run the API service
 
-* Ruby version
+1. clone this repo
+2. run `bundle install`
+3. run `rails db:migrate`
+4. create an `.env` file
+5. paste your `IPSTACK_API_KEY`
+4. run `rails s` or `rails server`
 
-* System dependencies
+## Usage
 
-* Configuration
+You can use tools like `curl` or `Postman` to test the API endpoints:
 
-* Database creation
+> Create Geolocation
 
-* Database initialization
+replace `your_ip_address` for the IP you want to store
 
-* How to run the test suite
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"ip_address":"your_ip_address"}' http://localhost:3000/geolocations
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+> Show Geolocation
 
-* Deployment instructions
+```sh
+curl http://localhost:3000/geolocations/1
+```
 
-* ...
+> Delete Geolocation
+
+```sh
+curl -X DELETE http://localhost:3000/geolocations/1
+```
+
+## Tests
+
+```sh
+rspec spec/controllers/geolocations_controller_spec.rb
+```
+
