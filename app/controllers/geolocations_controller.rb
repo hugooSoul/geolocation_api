@@ -2,7 +2,7 @@ class GeolocationsController < ApplicationController
   before_action :set_geolocation, only: [:show, :destroy]
 
   def create
-    service = GeolocationService.new(ENV[IPSTACK_API_KEY])
+    service = GeolocationService.new(ENV['IPSTACK_API_KEY'])
     location_data = service.get_location(params['ip_address'])
 
     if location_data
@@ -12,8 +12,6 @@ class GeolocationsController < ApplicationController
         city: location_data['city'],
         country: location_data['country_name'],
         country_code: location_data['country_code'],
-        timezone: location_data['time_zone']['id'],
-        timezone_code: location_data['time_zone']['code'],
         latitude: location_data['latitude'],
         longitude: location_data['longitude']
       )
