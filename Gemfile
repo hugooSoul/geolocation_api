@@ -37,13 +37,15 @@ gem "bootsnap", require: false
 
 gem 'httparty'
 gem 'jsonapi-serializer'
-gem 'pry'
+gem 'resolv', '~> 0.2.2'
+gem 'uri'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'pry'
 end
 
 group :development do

@@ -17,10 +17,10 @@ You can use tools like `curl` or `Postman` to test the API endpoints:
 
 > Create Geolocation
 
-replace `your_ip_address` for the IP you want to store
+replace `your_ip_address_or_url` for the IP you want to store (e.g.: www.google.com)
 
 ```sh
-curl -X POST -H "Content-Type: application/json" -d '{"ip_address":"your_ip_address"}' http://localhost:3000/geolocations
+curl -X POST -H "Content-Type: application/json" -d '{"ip_or_url":"your_ip_address_or_url"}' http://localhost:3000/geolocations
 ```
 
 > Show Geolocation
